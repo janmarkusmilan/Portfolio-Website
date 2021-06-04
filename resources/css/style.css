@@ -1,0 +1,443 @@
+/*
+Purple: #bd14cc;
+*/
+
+/* ---------------------------------------------- */
+/* BASIC SETUP */
+/* ---------------------------------------------- */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  background-color: #fff;
+  color: #555;
+  font-family: "Raleway", "Arial", sans-serif;
+  font-weight: 300;
+  font-size: 20px;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+.clearfix {
+  zoom: 1;
+}
+.clearfix:after {
+  /* Clears the float after an element (ensures proper padding between sections) */
+  /* Give to parent elements that have child elements with the float property */
+  content: ".";
+  clear: both;
+  display: block;
+  height: 0;
+  visibility: hidden;
+}
+
+/* ---------------------------------------------- */
+/* REUSABLE COMPONENTS */
+/* ---------------------------------------------- */
+
+.row {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+section {
+  padding: 80px 0;
+}
+
+.box {
+  padding: 1%;
+}
+
+/* ----- HEADINGS ----- */
+
+h1,
+h2,
+h3 {
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin-top: 0; /* Get rid of the margin set from normalize.css */
+  margin-bottom: 20px; /* Add spacing between heading and buttons */
+  color: #fff;
+  font-size: 240%; /* We want everything to be relative (240% of 20px in html) */
+  word-spacing: 4px;
+  letter-spacing: 1px; /* Uncompress the headline */
+}
+
+h2 {
+  font-size: 180%;
+  word-spacing: 2px;
+  text-align: center; /* Center the heading to middle of page */
+  margin-bottom: 30px; /* Space between header and text */
+  letter-spacing: 1px; /* Uncompress the headline */
+}
+
+h2:after {
+  /* Add a line between header and text */
+  display: block;
+  height: 2px;
+  background-color: #bd14cc;
+  content: " "; /* Need to define content when using :after */
+  width: 100px;
+  margin: 0 auto; /* Center the line */
+  margin-top: 30px; /* Add spacing from the heading */
+}
+
+h3 {
+  font-size: 110%;
+  margin-bottom: 15px;
+}
+
+h4 {
+  color: #bd14cc;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  word-spacing: 2px;
+  margin-bottom: 10px;
+  margin-left: -18px;
+}
+
+h4:before {
+  display: inline-block;
+  height: 2px;
+  background-color: #bd14cc;
+  content: " "; /* Need to define content when using :before */
+  width: 50px;
+  margin-bottom: 5px; /* Add spacing from the heading */
+  margin-right: 20px;
+}
+
+/* ----- BUTTONS ----- */
+
+.btn:link,
+.btn:visited,
+input[type="submit"] {
+  display: inline-block;
+  padding: 5px 30px;
+  font-weight: 300;
+  text-decoration: none;
+  border-radius: 3px;
+  transition: background-color 0.4s, border 0.4s, color 0.4s;
+}
+
+.btn-full:link,
+.btn-full:visited,
+input[type="submit"] {
+  background-color: #bd14cc;
+  border: 1px solid #bd14cc;
+  color: #fff;
+  margin-right: 15px;
+}
+
+.btn-ghost:link,
+.btn-ghost:visited {
+  border: 1px solid #bd14cc;
+  color: #bd14cc;
+}
+
+.btn:hover,
+.btn:active,
+input[type="submit"]:hover,
+input[type="submit"]:active {
+  background: #8f0f9b;
+}
+
+.btn-full:hover,
+.btn-full:active {
+  border: 1px solid #8f0f9b;
+}
+
+.btn-ghost:hover,
+.btn-ghost:active {
+  border: 1px solid #8f0f9b;
+  color: #fff;
+}
+
+input[type="submit"] {
+  cursor: pointer;
+}
+
+/* ----- PARAGRAPHS ----- */
+
+.box p {
+  font-size: 90%;
+  line-height: 145%;
+}
+
+/* ---------------------------------------------- */
+/* HEADER */
+/* ---------------------------------------------- */
+
+header {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url(img/hero.jpeg);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  height: 100vh;
+  outline: none;
+}
+
+.hero-text-box {
+  position: absolute;
+  width: 1140px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin-top: 14px;
+}
+
+.hero-text-box a {
+  margin-top: -15px;
+}
+
+.logo {
+  height: 100px;
+  width: auto;
+  float: left;
+  margin-top: 20px;
+}
+
+.logo-sticky {
+  display: none;
+  height: 50px;
+  width: auto;
+  float: left;
+  margin: 5px 0;
+}
+
+/* ----- MAIN NAV ----- */
+
+.main-nav {
+  float: right;
+  list-style: none;
+  margin-top: 57px;
+}
+
+.main-nav li {
+  display: inline-block;
+  margin-left: 40px;
+}
+
+.main-nav li a:link,
+.main-nav li a:visited {
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 90%; /* 18px (Divide 18 by 20 to get 0.9) */
+  transition: color 0.4s;
+}
+
+.main-nav li a:hover,
+.main-nav li a:active {
+  color: #bd14cc;
+}
+
+.main-nav-resume {
+  color: #bd14cc !important;
+}
+
+/* ----- MOBILE NAV ----- */
+
+.mobile-nav-icon {
+  float: right;
+  margin-top: 30px;
+  cursor: pointer;
+  display: none;
+}
+
+.mobile-nav-icon i {
+  font-size: 200%;
+  color: #fff;
+}
+
+/* ----- STICKY NAV ----- */
+
+.sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.98);
+  box-shadow: 0 2px 2px #0f0f0f;
+  z-index: 9999;
+}
+
+.sticky .main-nav {
+  margin-top: 18px;
+}
+
+.sticky .main-nav li a:link,
+.sticky .main-nav li a:visited {
+  padding: 16px 0;
+  color: #fff;
+  transition: color 0.4s;
+}
+
+.sticky .main-nav li a:hover,
+.sticky .main-nav li a:active {
+  color: #bd14cc;
+}
+
+.sticky .logo {
+  display: none;
+}
+
+.sticky .logo-sticky {
+  display: block;
+}
+
+/* ---------------------------------------------- */
+/* ABOUT ME */
+/* ---------------------------------------------- */
+
+.section-about {
+  outline: none;
+}
+
+.about-skills {
+  list-style: none;
+}
+
+.about-skills li {
+  display: inline-block;
+  text-transform: uppercase;
+  background-color: #f4f4f4;
+  padding: 10px;
+  margin-bottom: 14px;
+  letter-spacing: 2px;
+  margin-right: 20px;
+  font-size: 75%;
+  border-radius: 10%;
+}
+
+/* ---------------------------------------------- */
+/* PROJECTS */
+/* ---------------------------------------------- */
+
+.section-projects {
+  background-color: #f4f4f4;
+  outline: none;
+}
+
+.section-projects .box {
+  background-color: #fff;
+  text-align: center;
+  border-radius: 3px;
+}
+
+.section-projects a {
+  margin-top: 18px;
+  width: 45%;
+}
+
+.box img {
+  width: 100%;
+  height: 335px;
+  margin-bottom: 15px;
+}
+
+/* ---------------------------------------------- */
+/* FORM */
+/* ---------------------------------------------- */
+
+.section-form {
+  background-color: #fff;
+  outline: none;
+}
+
+.contact-form {
+  width: 60%;
+  margin: 0 auto;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 7px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  outline: none;
+}
+
+textarea {
+  resize: none;
+  height: 200px;
+}
+
+/* ---------------------------------------------- */
+/* FOOTER */
+/* ---------------------------------------------- */
+
+footer {
+  background-color: #333;
+  padding: 50px;
+  font-size: 80%;
+  outline: none;
+}
+
+.social-links {
+  list-style: none;
+  text-align: center;
+}
+
+.social-links li {
+  display: inline-block;
+  margin-right: 25px;
+}
+
+.social-links li:last-child {
+  margin-right: 0;
+}
+
+.social-links li a:link,
+.social-links li a:visited {
+  border: 0;
+  color: #888;
+  font-size: 300%;
+}
+
+.ion-social-github,
+.ion-social-linkedin {
+  transition: color 0.4s;
+}
+
+.ion-social-github:hover {
+  color: #000;
+}
+.ion-social-linkedin:hover {
+  color: #0a66c2;
+}
+
+footer p {
+  color: #888;
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* ---------------------------------------------- */
+/* ANIMATIONS */
+/* ---------------------------------------------- */
+
+.js--wp-1,
+.js--wp-2,
+.js--wp-3 {
+  opacity: 0; /* Make the element invisible */
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+}
+
+/* Make sure the element has the .js--wp-1 and .animated class at the same time */
+.js--wp-1.animated,
+.js--wp-2.animated,
+.js--wp-3.animated {
+  opacity: 1; /* Make the element visible once you reach it */
+}
